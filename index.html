@@ -507,23 +507,47 @@ section { padding: 120px 7%; position: relative; z-index: 2; max-width: 1280px; 
 .showcase-card img {
   width: 100%; height: 100%; object-fit: cover;
   transition: 0.55s var(--ease);
-  filter: brightness(0.88) saturate(0.95);
+  filter: brightness(1.15) saturate(1.1);
 }
 .showcase-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border-med); }
-.showcase-card:hover img { transform: scale(1.04); filter: brightness(0.95) saturate(1.05); }
+.showcase-card:hover img { transform: scale(1.04); filter: brightness(1.25) saturate(1.18); }
 .overlay {
-  position: absolute; bottom: 0; left: 0; width: 100%; padding: 36px 28px;
-  background: linear-gradient(to top, rgba(248,252,255,0.97) 0%, rgba(248,252,255,0.70) 55%, transparent 100%);
+  position: absolute; bottom: 0; left: 0; width: 100%; padding: 38px 30px;
+  background: linear-gradient(to top, rgba(248,252,255,0.97) 0%, rgba(248,252,255,0.72) 50%, transparent 100%);
+  display: flex; flex-direction: column;
 }
-.overlay h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 6px; font-weight: 700; color: var(--text-1); }
-.overlay p { color: var(--text-2); font-size: 14px; }
+.overlay .tag {
+  display: inline-flex; align-self: flex-start;
+  align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 30px; margin-bottom: 12px;
+  background: rgba(110,203,245,0.14);
+  border: 1px solid var(--border-med);
+  color: var(--primary-deep); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.overlay h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 6px; font-weight: 700; color: var(--text-1);
+  padding-left: 14px; border-left: 3px solid var(--primary-deep);
+}
+.overlay p { color: var(--text-2); font-size: 14px; padding-left: 14px; }
 .overlay a {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 14px; color: var(--primary-deep);
   text-decoration: none; font-weight: 600; font-size: 13.5px;
   transition: 0.25s var(--ease);
+  align-self: flex-start;
 }
 .overlay a:hover { gap: 10px; }
+
+/* Alternating rhythm: even cards mirror to the right for a less templated, more dynamic grid */
+.showcase-card:nth-child(even) .overlay { align-items: flex-end; text-align: right; }
+.showcase-card:nth-child(even) .overlay .tag,
+.showcase-card:nth-child(even) .overlay a { align-self: flex-end; }
+.showcase-card:nth-child(even) .overlay h3,
+.showcase-card:nth-child(even) .overlay p {
+  padding-left: 0; padding-right: 14px;
+  border-left: none; border-right: 3px solid var(--primary-deep);
+}
 
 /* ===== PRICING ===== */
 .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(295px, 1fr)); gap: 24px; align-items: stretch; }
@@ -771,6 +795,16 @@ footer .foot-links a:hover { color: var(--text-1); }
 @media (max-width: 768px) {
   nav { padding: 14px 22px; }
   .menu-btn { display: block; }
+  .showcase-card:nth-child(even) .overlay {
+    align-items: flex-start; text-align: left;
+  }
+  .showcase-card:nth-child(even) .overlay .tag,
+  .showcase-card:nth-child(even) .overlay a { align-self: flex-start; }
+  .showcase-card:nth-child(even) .overlay h3,
+  .showcase-card:nth-child(even) .overlay p {
+    padding-left: 14px; padding-right: 0;
+    border-right: none; border-left: 3px solid var(--primary-deep);
+  }
   .nav-links {
     position: absolute; top: 68px; left: 0; width: 100%;
     background: rgba(248,252,255,0.97);
@@ -966,6 +1000,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal" data-tilt>
       <img alt="Aroma Haven Café" loading="lazy" src="aroma-haven.jpg"/>
       <div class="overlay">
+        <span class="tag">Café</span>
         <h3>Aroma Haven Café</h3>
         <p>Premium coffeehouse &amp; cinematic dining atmosphere.</p>
         <a href="https://aroma-haven-cafcom.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
@@ -974,6 +1009,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal d1" data-tilt>
       <img alt="Heritage Sweet Shop" loading="lazy" src="sweetshop.jpg"/>
       <div class="overlay">
+        <span class="tag">Sweets</span>
         <h3>Heritage Sweet Shop</h3>
         <p>Traditional Indian mithai, since 1932.</p>
         <a href="https://sweetshop-com.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
@@ -982,6 +1018,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal d2" data-tilt>
       <img alt="Opulence Salon" loading="lazy" src="salon.jpg"/>
       <div class="overlay">
+        <span class="tag">Salon</span>
         <h3>Opulence Salon</h3>
         <p>Luxury hair &amp; beauty studio experience.</p>
         <a href="https://salon-com-snowy.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
@@ -990,6 +1027,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal" data-tilt>
       <img alt="Dawat Family Restaurant" loading="lazy" src="dawat.jpg"/>
       <div class="overlay">
+        <span class="tag">Restaurant</span>
         <h3>Dawat Family Restaurant</h3>
         <p>Smart family dining experience, Vijayawada.</p>
         <a href="https://dawat-family-restaurant.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
@@ -998,6 +1036,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal d1" data-tilt>
       <img alt="Maison Noir Fashion" loading="lazy" src="fashion.jpg"/>
       <div class="overlay">
+        <span class="tag">Fashion</span>
         <h3>Maison Noir Fashion</h3>
         <p>Premium fashion &amp; clothing store experience.</p>
         <a href="https://premium-fashion-website.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
@@ -1006,6 +1045,7 @@ footer .foot-links a:hover { color: var(--text-1); }
     <div class="showcase-card reveal d2" data-tilt>
       <img alt="Iron Beast Gym" loading="lazy" src="gym.jpg"/>
       <div class="overlay">
+        <span class="tag">Fitness</span>
         <h3>Iron Beast Gym</h3>
         <p>Modern fitness and gym website experience.</p>
         <a href="https://iron-beast-gym-blond.vercel.app/" target="_blank" rel="noopener">Visit Website →</a>
