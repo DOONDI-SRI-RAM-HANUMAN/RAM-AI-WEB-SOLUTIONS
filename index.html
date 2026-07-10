@@ -801,21 +801,6 @@ footer .foot-links a:hover { color: var(--text-1); }
   * { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; }
   .reveal { opacity: 1; transform: none; }
 }
-
-/* --- Position chatbot above WhatsApp --- */
-.fab-wa{
-  bottom:20px !important;
-  right:20px !important;
-  z-index:9999 !important;
-}
-iframe[src*="kalcend"],
-.kalcend-widget,
-.kalcend-launcher,
-[data-config-id]{
-  bottom:90px !important;
-  right:20px !important;
-}
-
 </style>
 </head>
 <body>
@@ -1335,5 +1320,32 @@ iframe[src*="kalcend"],
     setTimeout(() => { formOk.classList.remove('show'); leadForm.reset(); }, 3200);
   });
 </script>
-<script async="" data-config-id="ajWTEUXY0Vy8JN15M0pF" src="https://widget.kalcend.ai/widget.js"></script></body>
+<script async="" data-config-id="ajWTEUXY0Vy8JN15M0pF" src="https://widget.kalcend.ai/widget.js"></script>
+<style>
+/* Force WhatsApp below chatbot */
+.fab-wa{bottom:20px!important;right:20px!important;z-index:9999!important}
+iframe[src*="kalcend"],iframe[src*="chat"],.kalcend-widget,.kalcend-launcher,[data-config-id]{bottom:95px!important;right:20px!important;z-index:10000!important}
+.ram-chat-toast{position:fixed;right:20px;bottom:170px;max-width:280px;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.15);font-family:Inter,sans-serif;z-index:10001;opacity:0;transform:translateY(20px);transition:.4s}
+.ram-chat-toast.show{opacity:1;transform:translateY(0)}
+.ram-chat-toast b{display:block;margin-bottom:4px}
+.ram-chat-toast .close{position:absolute;top:6px;right:10px;cursor:pointer}
+</style>
+
+<div class="ram-chat-toast" id="ramToast"><span class="close" onclick="document.getElementById('ramToast').remove()">✕</span><b>👋 Welcome to RAM AI Web Solutions!</b><div>I'm your AI assistant. Ask me anything about websites, pricing or support.</div></div>
+<script>
+window.addEventListener('load',()=>{
+ setTimeout(()=>document.getElementById('ramToast')?.classList.add('show'),1200);
+ setTimeout(()=>document.getElementById('ramToast')?.remove(),9000);
+ function fix(){
+   document.querySelectorAll('iframe,.kalcend-widget,.kalcend-launcher,[data-config-id]').forEach(e=>{
+      try{
+        const s=e.style;
+        s.bottom='95px';s.right='20px';s.zIndex='10000';
+      }catch(err){}
+   });
+ }
+ fix();setInterval(fix,1000);
+});
+</script>
+</body>
 </html>
