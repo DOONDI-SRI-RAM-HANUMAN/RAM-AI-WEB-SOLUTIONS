@@ -802,7 +802,25 @@ footer .foot-links a:hover { color: var(--text-1); }
   .reveal { opacity: 1; transform: none; }
 }
 </style>
-</head>
+<style>
+/* Force WhatsApp above Kalcend widget */
+.fab-wa,
+.whatsapp-float,
+#whatsapp-button,
+a[href*="wa.me"],
+a[href*="whatsapp"]{
+    position:fixed !important;
+    right:20px !important;
+    bottom:110px !important;
+    z-index:2147483647 !important;
+}
+
+iframe[src*="kalcend"]{
+    z-index:2147483000 !important;
+}
+
+<script></script>
+</style></head>
 <body>
 <div aria-hidden="true" class="bg-mesh">
 <span class="blob b1"></span>
@@ -848,7 +866,7 @@ footer .foot-links a:hover { color: var(--text-1); }
 </div>
 </div>
 <div class="ceo-frame reveal d2" data-tilt="">
-<img alt="Sri Ram Hanuman — Founder &amp; CEO, RAM AI Web Solutions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" src="ceo.png">
+<img alt="Sri Ram Hanuman — Founder &amp; CEO, RAM AI Web Solutions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" src="ceo.png"/>
 <div class="ceo-fallback"><span class="mono">SR</span><small>Sri Ram Hanuman</small></div>
 <div class="ceo-badge">
 <span class="dot"></span>
@@ -857,7 +875,7 @@ footer .foot-links a:hover { color: var(--text-1); }
 <small>FOUNDER · CEO</small>
 </div>
 </div>
-</img></div>
+</div>
 </div>
 </header>
 <!-- ABOUT -->
@@ -1152,7 +1170,7 @@ footer .foot-links a:hover { color: var(--text-1); }
 <div class="contact-card">
 <i class="fa-solid fa-location-dot"></i>
 <h4>Visit</h4>
-<p>Suryaraopeta,<br>Vijayawada,<br>Andhra Pradesh 520002</br></br></p>
+<p>Suryaraopeta,<br/>Vijayawada,<br/>Andhra Pradesh 520002</p>
 </div>
 </div>
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:42px;">
@@ -1330,7 +1348,6 @@ iframe[src*="kalcend"],iframe[src*="chat"],.kalcend-widget,.kalcend-launcher,[da
 .ram-chat-toast b{display:block;margin-bottom:4px}
 .ram-chat-toast .close{position:absolute;top:6px;right:10px;cursor:pointer}
 </style>
-
 <div class="ram-chat-toast" id="ramToast"><span class="close" onclick="document.getElementById('ramToast').remove()">✕</span><b>👋 Welcome to RAM AI Web Solutions!</b><div>I'm your AI assistant. Ask me anything about websites, pricing or support.</div></div>
 <script>
 window.addEventListener('load',()=>{
@@ -1347,5 +1364,15 @@ window.addEventListener('load',()=>{
  fix();setInterval(fix,1000);
 });
 </script>
-</body>
+<script>
+setInterval(()=>{
+ const wa=document.querySelector('.fab-wa,.whatsapp-float,#whatsapp-button,a[href*="wa.me"],a[href*="whatsapp"]');
+ if(wa){
+   wa.style.position='fixed';
+   wa.style.right='20px';
+   wa.style.bottom='110px';
+   wa.style.zIndex='2147483647';
+ }
+},500);
+</script></body>
 </html>
