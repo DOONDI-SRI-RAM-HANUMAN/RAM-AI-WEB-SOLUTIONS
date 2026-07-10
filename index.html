@@ -801,6 +801,21 @@ footer .foot-links a:hover { color: var(--text-1); }
   * { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* --- Position chatbot above WhatsApp --- */
+.fab-wa{
+  bottom:20px !important;
+  right:20px !important;
+  z-index:9999 !important;
+}
+iframe[src*="kalcend"],
+.kalcend-widget,
+.kalcend-launcher,
+[data-config-id]{
+  bottom:90px !important;
+  right:20px !important;
+}
+
 </style>
 </head>
 <body>
