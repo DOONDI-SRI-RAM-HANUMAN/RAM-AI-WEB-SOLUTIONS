@@ -755,9 +755,9 @@ footer .foot-links a:hover { color: var(--text-1); }
 /* WhatsApp floating — bottom-right, ABOVE chat launcher */
 .fab-wa {
   position: fixed !important;
-  left: 24px !important;
+  left: 20px !important;
   right: auto !important;
-  bottom: 104px !important;
+  bottom: 20px !important;
   width: 60px; height: 60px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: #25D366;
@@ -799,8 +799,9 @@ iframe[src*="kalcend"],
 /* Welcome popup — above BOTH floating buttons */
 .ram-welcome-popup {
   position: fixed;
-  right: 24px;
-  bottom: 110px;
+  left: 20px;
+  right: auto;
+  bottom: 90px;
   max-width: 280px;
   background: #fff;
   border: 1px solid var(--border);
@@ -837,10 +838,10 @@ iframe[src*="kalcend"],
 .ram-welcome-popup .ram-close:hover { background: var(--bg-1); color: var(--text-1); }
 .ram-welcome-popup::before {
   content: ''; position: absolute;
-  right: 22px; bottom: -8px;
+  left: 22px; bottom: -8px;
   width: 16px; height: 16px;
   background: #fff;
-  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   transform: rotate(45deg);
 }
@@ -848,8 +849,9 @@ iframe[src*="kalcend"],
 /* Legacy popup selectors — mirror layout */
 .kalcend-welcome, .chat-welcome-popup {
   position: fixed !important;
-  right: 24px !important;
-  bottom: 190px !important;
+  left: 20px !important;
+  right: auto !important;
+  bottom: 90px !important;
   z-index: 2147483100 !important;
   max-width: 280px;
 }
@@ -889,9 +891,13 @@ iframe[src*="kalcend"],
   .hero-text p { font-size: 15.5px; line-height: 26px; }
   .section-title h2 { font-size: 28px; }
   .price-card { padding: 32px 24px; }
-  .fab-wa { right: 18px !important; bottom: 96px !important; width: 56px; height: 56px; font-size: 26px; }
+  .fab-wa {
+    left:16px !important;
+    right:auto !important;
+    bottom:16px !important;
+    width: 56px; height: 56px; font-size: 26px; }
   .fab-top { right: 18px; bottom: 168px; }
-  .ram-welcome-popup { right: 14px; bottom: 178px; max-width: calc(100vw - 28px); }
+  .ram-welcome-popup { left:14px; right:auto; bottom:84px; max-width:calc(100vw - 28px); }
   iframe[src*="kalcend"], .kalcend-widget, .kalcend-launcher, [id^="kalcend"] {
     right: 18px !important; bottom: 18px !important;
   }
