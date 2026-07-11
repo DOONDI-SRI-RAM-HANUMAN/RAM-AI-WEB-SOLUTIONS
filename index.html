@@ -8,8 +8,9 @@
 <meta content="RAM AI Web Solutions builds premium, mobile-optimized business websites from ₹6,000 with ₹500/month maintenance. Based in Vijayawada, Andhra Pradesh — built for restaurants, retail, clinics, hotels and local startups across India." name="description"/>
 <meta content="website design Vijayawada, business website Andhra Pradesh, affordable website India, static website ₹5000, RAM AI Web Solutions, web development Vijayawada" name="keywords"/>
 <meta content="RAM AI Web Solutions" name="author"/>
-<meta content="index, follow" name="robots"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="#F8FCFF" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta name="format-detection" content="telephone=yes"/>
 <meta name="mobile-web-app-capable" content="yes"/>
@@ -28,7 +29,15 @@
 <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE"/>
 <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE"/>
 -->
+<!-- SECURITY & CRAWLING NOTE (deployment-level, not fixable in HTML alone):
+  Content-Security-Policy, Permissions-Policy, Strict-Transport-Security and
+  X-Frame-Options are only reliably enforced as real HTTP response headers,
+  not via <meta> tags. On Vercel, add a `headers` block to vercel.json for
+  this route to set them. Also confirm /robots.txt exists and references
+  https://ram-ai-web-solutions.vercel.app/sitemap.xml so crawlers can find it. -->
 <link href="https://ram-ai-web-solutions.vercel.app/" rel="canonical"/>
+<link href="https://ram-ai-web-solutions.vercel.app/" hreflang="en-in" rel="alternate"/>
+<link href="https://ram-ai-web-solutions.vercel.app/" hreflang="x-default" rel="alternate"/>
 <link href="logo.png?v=2" rel="icon" type="image/png"/>
 <link href="logo.png?v=2" rel="shortcut icon"/>
 <link href="logo.png?v=2" rel="apple-touch-icon"/>
@@ -38,6 +47,7 @@
 <meta content="RAM AI Web Solutions | Premium Business Websites from ₹6,000" property="og:title"/>
 <meta content="Premium custom websites for local businesses in Vijayawada and across India. ₹6,000 one-time, 1 Year FREE Maintenance, then ₹300/month." property="og:description"/>
 <meta content="https://ram-ai-web-solutions.vercel.app/logo.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
 <meta content="https://ram-ai-web-solutions.vercel.app/" property="og:url"/>
 <meta content="RAM AI Web Solutions Logo" property="og:image:alt"/>
 <meta content="en_IN" property="og:locale"/>
@@ -963,7 +973,7 @@ iframe[src*="kalcend"],
 
 </head>
 <body>
-<a class="skip-link" href="#about">Skip to main content</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div aria-hidden="true" class="bg-mesh">
 <span class="blob b1"></span>
 <span class="blob b2"></span>
@@ -971,12 +981,12 @@ iframe[src*="kalcend"],
 </div>
 <div aria-hidden="true" class="grid-texture"></div>
 <div id="scrollProgress"></div>
-<nav id="mainNav">
+<nav id="mainNav" aria-label="Primary">
 <a class="logo" href="#">
 <img alt="RAM AI Web Solutions logo" class="logo-img" src="logo.png" width="40" height="40" decoding="async"/>
 <span>RAM AI Web Solutions</span>
 </a>
-<button aria-expanded="false" aria-label="Open navigation menu" class="menu-btn" id="menuBtn">☰</button>
+<button aria-expanded="false" aria-label="Open navigation menu" aria-controls="navLinks" class="menu-btn" id="menuBtn">☰</button>
 <div class="nav-links" id="navLinks">
 <a class="active" href="#">Home</a>
 <a href="#about">About</a>
@@ -1020,7 +1030,7 @@ iframe[src*="kalcend"],
 </div>
 </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <!-- ABOUT -->
 <section id="about">
 <div class="section-title reveal">
@@ -1288,8 +1298,8 @@ iframe[src*="kalcend"],
 <h2>Let's Build Your Digital Presence</h2>
 <p>Reach out on any channel — we typically reply within minutes on WhatsApp.</p>
 <form class="lead-form" id="leadForm" novalidate="">
-<div class="field"><input id="lf-name" placeholder=" " required="" type="text"/><label for="lf-name">Your Name</label></div>
-<div class="field"><input id="lf-phone" placeholder=" " required="" type="tel"/><label for="lf-phone">Phone / WhatsApp Number</label></div>
+<div class="field"><input id="lf-name" placeholder=" " required="" type="text" autocomplete="name"/><label for="lf-name">Your Name</label></div>
+<div class="field"><input id="lf-phone" placeholder=" " required="" type="tel" autocomplete="tel" inputmode="tel"/><label for="lf-phone">Phone / WhatsApp Number</label></div>
 <div class="field"><textarea id="lf-msg" placeholder=" " required=""></textarea><label for="lf-msg">Tell us about your business</label></div>
 <button class="btn btn-primary" style="width:100%;" type="submit"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</button>
 <div class="form-ok" id="formOk"><i class="fa-solid fa-circle-check"></i> Opening WhatsApp with your details…</div>
