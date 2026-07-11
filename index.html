@@ -799,8 +799,8 @@ iframe[src*="kalcend"],
 /* Welcome popup — above BOTH floating buttons */
 .ram-welcome-popup {
   position: fixed;
-  left: 20px;
-  right: auto;
+  right: 24px;
+  left: auto;
   bottom: 90px;
   max-width: 280px;
   background: #fff;
@@ -838,7 +838,9 @@ iframe[src*="kalcend"],
 .ram-welcome-popup .ram-close:hover { background: var(--bg-1); color: var(--text-1); }
 .ram-welcome-popup::before {
   content: ''; position: absolute;
-  left: 22px; bottom: -8px;
+  right: 22px;
+  left: auto;
+  bottom: -8px;
   width: 16px; height: 16px;
   background: #fff;
   border-left: 1px solid var(--border);
@@ -849,8 +851,8 @@ iframe[src*="kalcend"],
 /* Legacy popup selectors — mirror layout */
 .kalcend-welcome, .chat-welcome-popup {
   position: fixed !important;
-  left: 20px !important;
-  right: auto !important;
+  right:24px !important;
+  left:auto !important;
   bottom: 90px !important;
   z-index: 2147483100 !important;
   max-width: 280px;
@@ -897,7 +899,7 @@ iframe[src*="kalcend"],
     bottom:16px !important;
     width: 56px; height: 56px; font-size: 26px; }
   .fab-top { right: 18px; bottom: 168px; }
-  .ram-welcome-popup { left:14px; right:auto; bottom:84px; max-width:calc(100vw - 28px); }
+  .ram-welcome-popup { right:14px; left:auto; bottom:84px; max-width:calc(100vw - 28px); }
   iframe[src*="kalcend"], .kalcend-widget, .kalcend-launcher, [id^="kalcend"] {
     right: 18px !important; bottom: 18px !important;
   }
